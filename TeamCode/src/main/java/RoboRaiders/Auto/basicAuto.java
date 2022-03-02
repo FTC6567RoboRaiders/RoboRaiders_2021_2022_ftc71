@@ -27,12 +27,17 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.RoboRaiders.Auto;
+package RoboRaiders.Auto;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.util.Range;
 
-import RoboRaiders.Robot.QueenLizzy26;
+import RoboRaiders.Robot.TestRobot;
 
 
 /**
@@ -48,16 +53,15 @@ import RoboRaiders.Robot.QueenLizzy26;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="QueenLizzy26AutoTSU")
+@Autonomous(name="Basic: Linear OpMode", group="Linear Opmode")
 //@Disabled
-public class QueenLizzy26AutoTSU extends LinearOpMode {
-    public QueenLizzy26 stevesRobot;
-    double numofticks;
+public class basicAuto extends LinearOpMode {
+    public TestRobot stevesRobot;
 
     @Override
     public void runOpMode() {
         // Create an instance of the TestRobot and store it into StevesRobot
-        stevesRobot = new QueenLizzy26();
+        stevesRobot = new TestRobot();
 
         // Initialize stevesRobot and tell user that the robot is initialized
         stevesRobot.initialize(hardwareMap);
@@ -72,47 +76,21 @@ public class QueenLizzy26AutoTSU extends LinearOpMode {
         waitForStart();
 
         // run until the end of the match (driver presses STOP)
-        // while (opModeIsActive()) {
+       // while (opModeIsActive()) {
 
-        //Strafe over to carousel
-        stevesRobot.resetEncoders();
-        stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(15.0);
-        stevesRobot.runWithEncoders();
-        stevesRobot.setDriveMotorPower(.30, -.30, -.30, .30);
+            double numofticks = stevesRobot.driveTrainCalculateCounts(24);
+            stevesRobot.runWithEncoders();
+            stevesRobot.setDriveMotorPower(.75, .75, .75, .75);
 
-        while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks) {
+            while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks) {
 
-            telemetry.addData("number of ticks: ", stevesRobot.getSortedEncoderCount());
-            telemetry.update();
-        }
-        stevesRobot.setDriveMotorPower(0, 0, 0, 0);
-        telemetry.addData("setting power to zero", true);
+                telemetry.addData("number of ticks: ", stevesRobot.getSortedEncoderCount());
+                telemetry.update();
+            }
+            stevesRobot.setDriveMotorPower(0, 0, 0, 0);
+            telemetry.addData("setting power to zero", true);
 
-        //Spin carousel to remove duck
-        stevesRobot.csRunWithoutEncoders();
-        stevesRobot.setCarouselMotorPower(-.75);
 
-        sleep(3000);
-
-        stevesRobot.setCarouselMotorPower(0.0);
-        telemetry.addData("setting power to zero", true);
-        // }
-
-        //Original code to drive to storage unit
-        stevesRobot.resetEncoders();
-         stevesRobot.runWithEncoders();
-         numofticks = stevesRobot.driveTrainCalculateCounts(20.0);
-         stevesRobot.setDriveMotorPower(-.50, .50, -.50, .50);
-
-         while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks) {
-
-         telemetry.addData("number of ticks: ", stevesRobot.getSortedEncoderCount());
-         telemetry.addData("number of ticks", numofticks);
-         telemetry.update();
-         }
-         stevesRobot.setDriveMotorPower(0, 0, 0, 0);
-         telemetry.addData("setting power to zero", true);
-
+       // }
     }
 }

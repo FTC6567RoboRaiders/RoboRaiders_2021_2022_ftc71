@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.RoboRaiders.Logger;
+package RoboRaiders.Logger;
 
 import android.util.Log;
 

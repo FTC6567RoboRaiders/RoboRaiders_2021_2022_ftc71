@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.RoboRaiders.Auto;
+package RoboRaiders.Auto;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
