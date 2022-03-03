@@ -80,12 +80,22 @@ public class aRightBlueQueenLizzy26 extends LinearOpMode {
 
         //**********************************************************************************************
 
+        //Strafe out right to align with carousel
+
+        stevesRobot.resetEncoders();
+        stevesRobot.runWithEncoders();
+        numofticks = stevesRobot.driveTrainCalculateCounts(5);
+        stevesRobot.setDriveMotorPower(-.10, .10, .10, -.10);
+
+        while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
+            sleep(1);
+        }
         // move backward
 
         stevesRobot.resetEncoders();
         stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(4);
-        stevesRobot.setDriveMotorPower(1, -1, 1, -1);
+        numofticks = stevesRobot.driveTrainCalculateCounts(8);
+        stevesRobot.setDriveMotorPower(.1, -.1, .1, -.1);
 
 
         while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
@@ -161,18 +171,6 @@ public class aRightBlueQueenLizzy26 extends LinearOpMode {
 
         //**********************************************************************************************
 
-        // strafe to carousel
-
-        stevesRobot.resetEncoders();
-        stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(9);
-        stevesRobot.setDriveMotorPower(.1, -.10, -.10, .10);
-
-        while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
-            sleep(1);
-        }
-
-        stevesRobot.setDriveMotorPower(0, 0, 0, 0);
 
         //**********************************************************************************************
 
@@ -183,32 +181,33 @@ public class aRightBlueQueenLizzy26 extends LinearOpMode {
 
         sleep(4000);
 
+
         stevesRobot.setCarouselMotorPower(0);
 
         //**********************************************************************************************
 
-        //maybe strafe into wall
-
-        //**********************************************************************************************
-
-        // drive backward
-
+        //Strafe away from carousel right
         stevesRobot.resetEncoders();
         stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(36);
-        stevesRobot.setDriveMotorPower(1, -1, 1, -1);
+        numofticks = stevesRobot.driveTrainCalculateCounts(40);
+        stevesRobot.setDriveMotorPower(-.10, .10, .10, -.10);
+
         while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
             sleep(1);
         }
-
-        stevesRobot.setDriveMotorPower(0, 0, 0, 0);
-
         //**********************************************************************************************
 
-        //maybe strafe away from wall
+        //Spin 180 degrees
 
-        //**********************************************************************************************
+        stevesRobot.resetEncoders();
+        stevesRobot.runWithEncoders();
+        numofticks = stevesRobot.driveTrainCalculateCounts(20.3);
+        stevesRobot.setDriveMotorPower(-.10, -.10, -.10, -.10);
 
+        while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
+            sleep(1);
+        }
+        sleep(300);
         // move deposit to top level
 
         stevesRobot.depositBrace.setPosition(0.71);
@@ -218,27 +217,11 @@ public class aRightBlueQueenLizzy26 extends LinearOpMode {
 
         //**********************************************************************************************
 
-        // turn 90% left so front faces wall
-
-        stevesRobot.resetEncoders();
-        stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(13);
-        stevesRobot.setDriveMotorPower(-.10, -.10, -.10, -.10);
-
-        while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
-            sleep(1);
-        }
-
-        stevesRobot.setDriveMotorPower(0, 0, 0, 0);
-        sleep(1000);
-
-        //**********************************************************************************************
-
         // move backward to shipping hub
 
         stevesRobot.resetEncoders();
         stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(26);
+        numofticks = stevesRobot.driveTrainCalculateCounts(30);
         stevesRobot.setDriveMotorPower(.10, -.10, .10, -.10);
 
         while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
@@ -268,7 +251,7 @@ public class aRightBlueQueenLizzy26 extends LinearOpMode {
 
         stevesRobot.resetEncoders();
         stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(30);
+        numofticks = stevesRobot.driveTrainCalculateCounts(36);
         stevesRobot.setDriveMotorPower(-.30, .30, -.30, .30);
 
         while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
@@ -283,7 +266,7 @@ public class aRightBlueQueenLizzy26 extends LinearOpMode {
 
         stevesRobot.resetEncoders();
         stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(12);
+        numofticks = stevesRobot.driveTrainCalculateCounts(15);
         stevesRobot.setDriveMotorPower(-.30, .30, .30, -.30);
 
 

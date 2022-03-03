@@ -155,74 +155,24 @@ public class aRightRedQueenLizzy26 extends LinearOpMode {
         while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
             sleep(1);
         }
-        stevesRobot.resetEncoders();
-        stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(2);
-        stevesRobot.setDriveMotorPower(.10, -.15, -.10, .10);
 
-        while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
-            sleep(1);
-        }
         sleep(500);
 
 
-        //set down intake
-        stevesRobot.scoopMove.setPosition(1.0);
 
-        sleep(200);
-
-
-
-        // set the intake mechanism to running continuously without turning off, then drive forward for some amount (SLOWLY) into the wharehouse. Once that's been finished, stop intake and continue
 
 
         //drive forward into the warehouse
 
         stevesRobot.resetEncoders();
         stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(65);
-        stevesRobot.setDriveMotorPower(-.1, .1, -.1, .1);
-
-        while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
-            stevesRobot.scoop.setPosition(0.0);
-            sleep(1);
-        }
-        sleep(300);
-
-
-        //Bring up intake, drop cargo into the deposit door with the door opened
-
-        stevesRobot.scoopMove.setPosition(0.0);
-        stevesRobot.depositDoor.setPosition(1.0);
-        stevesRobot.scoopDoor.setPosition(1.0);
-        stevesRobot.depositDoor.setPosition(0.0);
-        stevesRobot.scoopDoor.setPosition(0.0);
-
-        sleep(300);
-//        //Go backwards out of warehouse
-//
-//        stevesRobot.resetEncoders();
-//        stevesRobot.runWithEncoders();
-//        numofticks = stevesRobot.driveTrainCalculateCounts(20);
-//        stevesRobot.setDriveMotorPower(.1, -.1, .1, -.1);
-//
-//        while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
-//
-//            sleep(1);
-//        }
-
-        stevesRobot.resetEncoders();
-        stevesRobot.runWithEncoders();
-        numofticks = stevesRobot.driveTrainCalculateCounts(6);
+        numofticks = stevesRobot.driveTrainCalculateCounts(55);
         stevesRobot.setDriveMotorPower(-.1, .1, -.1, .1);
 
         while (opModeIsActive() && stevesRobot.getSortedEncoderCount() <= numofticks){
             sleep(1);
         }
         sleep(300);
-
-        //turn left to align with shipping hub
-
 
 
 
